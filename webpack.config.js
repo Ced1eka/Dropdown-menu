@@ -4,7 +4,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
+// const ESLintPlugin = require("eslint-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -16,16 +16,22 @@ const config = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
+    assetModuleFilename: "[name][ext][query]",
+    clean: true,
   },
+  devtool: 'source-map',
   devServer: {
     open: true,
     host: "localhost",
+    client:{progress:true},
   },
   plugins: [
+    // new ESLintPlugin({ failOnWarning : true }),
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: "/src/index.html",
+      inject: true,
     }),
-    new ESLintPlugin({ failOnWarning: true }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
