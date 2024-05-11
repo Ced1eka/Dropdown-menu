@@ -1,26 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Webpack App</title>
-    </head>
-    <body>
-        <h1>Hello world!</h1>
-        <h2>Tip: Check your console</h2>
-    </body>
-    
-    <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker
-                    .register("service-worker.js")
-                    .then((registration) => {
-                        console.log("Service Worker registered: ", registration);
-                    })
-                    .catch((registrationError) => {
-                        console.error("Service Worker registration failed: ", registrationError);
-                    });
-            });
-        }
-    </script>
+  <head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+  </head>
+  <body>
+    <div class="dropdownContent">
+      <button id="hoverBtn">Hover to see options!</button>
+      <div class="menuItems">
+        <a href="#" class="hidden">Burger</a>
+        <a href="#" class="hidden">Fries</a>
+        <a href="#" class="hidden">Cola</a>
+      </div>
+    </div>
+  </body>
 </html>

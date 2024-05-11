@@ -1,5 +1,15 @@
-console.log("Hello okay!");
+import "./styles.css";
 
-const x = (val1 && val2) || (val3 && val4);
+const hoverBtn = document.getElementById("hoverBtn");
 
-console.log(x)
+hoverBtn.addEventListener("click", () => {
+  const getHidden = document.querySelectorAll("a");
+  getHidden.forEach((key) => {
+    if (key.classList.contains("hidden")) {
+      key.classList.remove("hidden");
+    }
+     else if (key.className === '') {
+      key.classList.add("hidden");
+    }
+  });
+});
