@@ -1,15 +1,17 @@
 import "./styles.css";
 
-const hoverBtn = document.getElementById("hoverBtn");
+// Select all elements with the class 'dropdownContent'
+const dropdownContents = document.querySelectorAll(".dropdownContent");
 
-hoverBtn.addEventListener("click", () => {
-  const getHidden = document.querySelectorAll("a");
-  getHidden.forEach((key) => {
-    if (key.classList.contains("hidden")) {
-      key.classList.remove("hidden");
-    }
-     else if (key.className === '') {
-      key.classList.add("hidden");
-    }
+// Loop through each dropdownContent element
+dropdownContents.forEach((dropdownContent) => {
+  // Find the hoverBtn and menuItems within this dropdownContent
+  const hoverBtn = dropdownContent.querySelector("#hoverBtn");
+  const menuItems = dropdownContent.querySelector(".menuItems");
+
+  // Add click event listener to each hoverBtn
+  hoverBtn.addEventListener("click", () => {
+    // Toggle the 'hidden' class on the menuItems within this dropdownContent
+    menuItems.classList.toggle("hidden");
   });
 });
